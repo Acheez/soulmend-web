@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SoulMend — Massage therapy</title>
+<meta name="description" content="SoulMend massage therapy: deep tissue, relaxation, cupping and aromatherapy massage. Book by phone: 598 300 198.">
+<meta name="theme-color" content="#0c0f0b">
+<meta property="og:title" content="SoulMend — Massage therapy">
+<meta property="og:description" content="Let go of what weighs you down. Book your session: 598 300 198.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/img/back-1600.webp">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..500,0..100;1,9..144,300..400,0..100&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/img/back-800.webp" imagesrcset="assets/img/back-800.webp 800w, assets/img/back-1600.webp 1600w" imagesizes="(max-width: 760px) 60vw, 30vw">
+
+<!-- Local SEO. TODO: add street address, city, opening hours once confirmed. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HealthAndBeautyBusiness",
+  "name": "SoulMend",
+  "description": "Massage therapy: deep tissue, relaxation, cupping and aromatherapy.",
+  "telephone": "+995598300198",
+  "image": "assets/img/back-1600.webp",
+  "priceRange": "₾₾"
+}
+</script>
+
+<script>
+  // Run the intro only when motion is allowed. Set before first paint to avoid a flash.
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('is-intro');
+</script>
+
+<style>
+:root{
+  /* Palette pulled from the logo and the studio photos */
+  /* Theme tokens. Default = dark. Put data-theme="light" on <html> for the light version. */
+  --bg:#0c0f0b;       /* near-black with a trace of the leaves' green — photos glow on it */
+  --bg-2:#141912;     /* raised surfaces / alternate sections */
+  --fg:#e6e4cf;       /* logo cream */
+  --fg-mute:#b9bba6;
+  --head-bg:rgba(12,15,11,.78);
+  --forest:#0c0f0b;
+  --pine:#2f4a2a;     /* logo green */
+  --moss:#6f8360;
+  --sage:#d1dabd;     /* logo background */
+  --cream:#e6e4cf;    /* logo on dark */
+  --paper:#eef0e3;
+  --ember:#c48a55;    /* candle light in the cupping photo — used sparingly */
+  --ink:#141a12;
+
+  --serif:"Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --sans:"Albert Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  /* Type scale ≈ perfect fourth (1.333) on a 17px base */
+  --t-0:1.0625rem; --t-1:1.4rem; --t-2:1.875rem; --t-3:2.5rem; --t-4:3.33rem;
+
+  --gutter:clamp(1.25rem, 4vw, 3.5rem);
+  --nav-h:76px;
+  --ease-out:cubic-bezier(.2,.7,.2,1);
+  --ease-io:cubic-bezier(.75,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h);-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 var(--t-0)/1.6 var(--sans);-webkit-font-smoothing:antialiased;
+  padding-bottom:env(safe-area-inset-bottom,0px)}
+img{display:block;max-width:100%}
+a{color:inherit}
+html[data-theme="light"]{
+  --bg:#eef1e6; --bg-2:#e2e8d6; --fg:#141a12; --fg-mute:#4d5745; --head-bg:rgba(238,241,230,.82)
+}
+:focus-visible{outline:2px solid var(--ember);outline-offset:3px;border-radius:4px}
+.serif{font-family:var(--serif);font-variation-settings:"SOFT" 100;font-optical-sizing:auto}
+h1,h2,h3{font-family:var(--serif);font-variation-settings:"SOFT" 100;font-weight:350;margin:0;letter-spacing:-.01em}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:.6em;min-height:48px;padding:.75rem 1.4rem;border-radius:999px;
+  font:600 .95rem/1 var(--sans);text-decoration:none;border:1px solid transparent;cursor:pointer;
+  transition:background-color .25s, color .25s, border-color .25s}
+.btn-cream{background:var(--cream);color:var(--ink)}
+.btn-cream:hover{background:#fff}
+.btn-line{border-color:color-mix(in srgb,currentColor 40%,transparent);background:transparent}
+.btn-line:hover{border-color:currentColor}
+.btn-pine{background:var(--pine);color:var(--cream)}
+.btn-pine:hover{background:#264022}
+.btn svg{width:18px;height:18px;flex:none}
+
+html[data-theme="light"] .btn-cream{background:var(--pine);color:var(--cream)}
+html[data-theme="light"] .btn-cream:hover{background:#264022}
+html[data-theme="light"] .steps li::before{color:var(--pine)}
+html[data-theme="light"] .hero-title{font-size:clamp(3rem,5.6vw,6rem)}
+@media (max-width:760px){html[data-theme="light"] .hero-title{font-size:clamp(2.7rem,13vw,4.2rem)}}
+html[data-theme="light"] .ph img,html[data-theme="light"] .ph-main .frame{box-shadow:0 30px 60px -30px rgba(20,26,18,.45)}
+
+/* ---------- Header ---------- */
+.site-head{position:fixed;inset:0 0 auto 0;z-index:50;height:calc(var(--nav-h) + env(safe-area-inset-top,0px));
+  padding:env(safe-area-inset-top,0px) var(--gutter) 0;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  transition:background-color .35s, backdrop-filter .35s}
+.site-head.is-solid{background:var(--head-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.brand{display:block;width:150px;color:var(--fg);line-height:0}
+.brand svg{width:100%;height:auto;display:block}
+.nav{display:flex;gap:2rem}
+.nav a{text-decoration:none;font-weight:500;font-size:.95rem;opacity:.82}
+.nav a:hover{opacity:1}
+@media (max-width:860px){.nav{display:none}}
+@media (max-width:420px){.brand{width:130px}}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:max(100svh,700px);overflow:hidden;isolation:isolate;
+  background:var(--bg)}
+.stage{position:absolute;inset:0}
+.ph{position:absolute;margin:0;transform:rotate(var(--r,0deg));will-change:transform}
+.ph img{width:100%;height:100%;object-fit:cover;border-radius:18px}
+.ph-main{left:50%;top:13svh;width:min(30vw,48svh);margin-left:calc(min(30vw,48svh) / -2);aspect-ratio:100/140;z-index:2}
+.ph-main .frame{width:100%;height:100%;border-radius:999px 999px 22px 22px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.ph-main .frame img{border-radius:0;object-position:60% 40%}
+.ph-main .swoosh{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.swoosh path{fill:none;stroke:var(--fg);stroke-linecap:round}
+.ph-tl{--r:-4deg;left:4vw;top:17svh;width:min(14vw,24svh);aspect-ratio:4/5}
+.ph-tr{--r:3deg;right:5vw;top:13svh;width:min(15vw,24svh);aspect-ratio:1}
+.ph-br{--r:-2deg;right:10vw;bottom:8svh;width:min(16vw,26svh);aspect-ratio:1}
+.ph-tl img,.ph-tr img,.ph-br img{box-shadow:0 30px 60px -28px rgba(0,0,0,.7);will-change:transform,opacity}
+.ph-tr img{object-position:50% 70%}
+
+.hero-title{position:absolute;left:var(--gutter);bottom:7svh;z-index:3;margin:0;
+  font-size:clamp(3rem,7.2vw,7.4rem);line-height:.94;font-weight:300;letter-spacing:-.025em;color:var(--fg)}
+.hero-title .line{display:block;overflow:hidden;padding-bottom:.16em;margin-bottom:-.16em}
+.hero-title .line > span{display:block;transition:transform 1.1s var(--ease-out)}
+.hero-title .line:nth-child(2) > span{transition-delay:.08s}
+.hero-title .line:nth-child(3) > span{transition-delay:.16s}
+
+.hero-side{position:absolute;right:5vw;top:50%;transform:translateY(-38%);width:min(300px,24vw);z-index:3;transition:opacity .9s .3s}
+.hero-side p{margin:0 0 1.25rem;color:var(--fg-mute)}
+.hero-side .actions{display:flex;flex-wrap:wrap;gap:.6rem}
+
+/* Intro states (only when motion allowed) */
+.is-intro .ph{opacity:0}
+.is-intro .hero-title .line > span{transform:translateY(105%)}
+.is-intro .hero-side,.is-intro .site-head{opacity:0}
+.site-head{transition:opacity .8s, background-color .35s}
+.intro-text .hero-title .line > span{transform:none}
+.intro-text .hero-side,.intro-text .site-head{opacity:1}
+.is-intro .swoosh{opacity:0}
+.intro-text .swoosh{opacity:1}
+.is-intro .swoosh path{stroke-dashoffset:var(--len)}
+.swoosh path{stroke-dasharray:var(--len);stroke-dashoffset:0;transition:stroke-dashoffset 1.6s var(--ease-out)}
+.intro-text .swoosh path{stroke-dashoffset:0}
+.swoosh path:nth-child(2){transition-delay:.25s}
+
+@media (max-width:760px){
+  .hero{min-height:0;padding:calc(var(--nav-h) + env(safe-area-inset-top,0px) + 8px) 0 3.5rem}
+  .stage{position:relative;inset:auto}
+  .stage{height:104vw}
+  .ph-main{top:2vw;width:50vw;margin-left:-25vw}
+  .ph-tl,.ph-tr,.ph-br{z-index:3}
+  .ph-tl{left:3vw;top:42vw;width:26vw}
+  .ph-tr{right:3vw;top:6vw;width:25vw}
+  .ph-br{right:4vw;bottom:auto;top:62vw;width:27vw}
+  .hero-title{position:relative;left:auto;bottom:auto;margin:-10vw var(--gutter) 0;font-size:clamp(2.7rem,13vw,4.2rem)}
+  .hero-side{position:static;transform:none;width:auto;margin:1.5rem var(--gutter) 0}
+}
+@media (min-width:761px) and (max-height:760px){ .hero-side{transform:translateY(-30%)} }
+
+/* ---------- Section heads ---------- */
+.sec{padding:clamp(5rem,10vw,8.5rem) var(--gutter)}
+.sec-head{max-width:1120px;margin:0 auto clamp(2.5rem,5vw,4rem);display:grid;grid-template-columns:1fr minmax(0,26rem);gap:1.5rem 3rem;align-items:end}
+.sec-head h2{font-size:clamp(2.4rem,5vw,var(--t-4));line-height:1.02;font-weight:300}
+.sec-head p{margin:0;color:var(--fg-mute)}
+@media (max-width:760px){.sec-head{grid-template-columns:1fr}}
+
+/* ---------- Treatments: stacking cards ---------- */
+.treatments{background:var(--bg);padding-bottom:clamp(3rem,8vw,6rem)}
+.stack{max-width:1120px;margin:0 auto}
+.card{position:sticky;top:calc(var(--nav-h) + 16px + var(--i) * 18px);
+  height:clamp(470px,calc(100svh - var(--nav-h) - 120px),600px);margin-bottom:9vh;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(1.25rem,3vw,2.75rem);
+  padding:clamp(.9rem,1.4vw,1.1rem);border-radius:28px;color:var(--ink);background:var(--cream);
+  transform-origin:50% 0;will-change:transform;box-shadow:0 -20px 50px -30px rgba(0,0,0,.55)}
+.card:last-child{margin-bottom:0}
+.card[data-tone="sage"]{background:var(--sage)}
+.card[data-tone="pine"]{background:var(--pine);color:var(--cream)}
+.card[data-tone="paper"]{background:var(--paper)}
+.card-media{border-radius:18px;overflow:hidden;min-height:0}
+.card-media img{width:100%;height:100%;object-fit:cover}
+.card-body{display:flex;flex-direction:column;padding:clamp(.5rem,1.6vw,1.4rem) clamp(.25rem,1.6vw,1.4rem) clamp(.5rem,1.2vw,1rem) 0;min-height:0}
+.card h3{font-size:clamp(2rem,3.4vw,var(--t-3));line-height:1.05;font-weight:350}
+.card .lede{margin:.6rem 0 1.1rem;max-width:34ch;font-size:1.02rem;color:color-mix(in srgb,currentColor 80%,transparent)}
+.benefits{list-style:none;margin:0 0 auto;padding:0;display:grid;gap:.45rem;font-size:.95rem}
+.benefits li{display:flex;gap:.65rem;align-items:baseline}
+.benefits li::before{content:"";flex:none;width:.7em;height:.7em;border-radius:50%;
+  /* tiny crescent — the logo mark reduced to a bullet */
+  background:currentColor;opacity:.7;transform:translateY(.08em);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M13 2.2A8.5 8.5 0 1 0 17.8 13 7 7 0 0 1 13 2.2z'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M13 2.2A8.5 8.5 0 1 0 17.8 13 7 7 0 0 1 13 2.2z'/%3E%3C/svg%3E") center/contain no-repeat}
+.prices{margin:1.3rem 0 1.1rem;padding:0}
+.prices .row{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:1rem;padding:.62rem 0;
+  border-top:1px solid color-mix(in srgb,currentColor 20%,transparent)}
+.prices .row:last-child{border-bottom:1px solid color-mix(in srgb,currentColor 20%,transparent)}
+.prices dt{font-weight:500}
+.prices dd{margin:0;font-family:var(--serif);font-variation-settings:"SOFT" 100;font-size:1.35rem;line-height:1}
+.card .btn{align-self:flex-start}
+.card[data-tone="pine"] .btn-pine{background:var(--cream);color:var(--ink)}
+
+@media (max-width:760px){
+  .card{grid-template-columns:1fr;grid-template-rows:30% 1fr;height:min(calc(100svh - var(--nav-h) - 40px),640px);
+    top:calc(var(--nav-h) + 8px + var(--i) * 12px);gap:.9rem;padding:.7rem;border-radius:22px;margin-bottom:6vh}
+  .card-body{padding:0 .5rem .4rem}
+  .card .lede{margin:.35rem 0 .8rem;font-size:.97rem}
+  .benefits{font-size:.92rem;gap:.3rem}
+  .prices{margin:.9rem 0 .8rem}
+  .prices .row{padding:.45rem 0}
+}
+@media (max-width:760px) and (max-height:720px){ .benefits li:nth-child(n+3){display:none} }
+
+/* ---------- First visit ---------- */
+.visit{background:var(--bg-2);color:var(--fg)}
+.steps{max-width:1120px;margin:0 auto;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;counter-reset:s}
+.steps li{counter-increment:s;padding-top:1.25rem;border-top:1px solid color-mix(in srgb,var(--fg) 25%,transparent)}
+.steps li::before{content:counter(s);display:block;font-family:var(--serif);font-variation-settings:"SOFT" 100;font-size:var(--t-2);line-height:1;margin-bottom:.8rem;color:var(--sage)}
+.steps h3{font-size:var(--t-1);line-height:1.2;margin-bottom:.4rem}
+.steps p{margin:0;font-size:.97rem;color:var(--fg-mute)}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr;gap:2rem 1.5rem}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* ---------- Footer ---------- */
+.site-foot{padding:3rem var(--gutter) calc(2.5rem + env(safe-area-inset-bottom,0px));border-top:1px solid color-mix(in srgb,var(--fg) 12%,transparent)}
+.foot-inner{max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;gap:1.5rem 3rem;align-items:flex-end;justify-content:space-between}
+.lockup{color:var(--fg)}
+.lockup svg{width:190px;height:auto;display:block}
+.lockup span{display:block;margin:.35rem 0 0 58px;font-size:.88rem;opacity:.7}
+.foot-inner small{opacity:.6;font-size:.85rem}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none !important;animation:none !important}
+  .card{transform:none !important;filter:none !important}
+}
+</style>
+</head>
+<body>
+
+<!-- Logo artwork (traced from the SoulMend social posts) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 2278.818690 837.271891"><g transform="translate(-163.500000,989.653701) scale(0.100000,-0.100000)" fill="currentColor" stroke="none"> <path d="M5760 9880 c-281 -38 -622 -116 -770 -175 -47 -19 -109 -40 -139 -46 -46 -10 -359 -161 -571 -276 -66 -36 -203 -126 -285 -187 -33 -25 -94 -69 -135 -99 -113 -83 -380 -356 -380 -390 0 -34 25 -36 68 -4 16 12 49 36 72 52 23 17 79 58 125 92 46 35 108 77 137 94 29 17 71 48 94 69 22 20 62 50 90 65 27 16 72 42 99 60 59 36 368 190 540 268 113 51 212 87 280 102 17 3 111 32 210 64 127 41 204 61 260 66 44 3 116 15 160 25 256 59 355 70 645 70 282 -1 633 -25 694 -49 38 -15 249 -48 360 -56 58 -4 103 -13 127 -26 47 -23 134 -43 156 -35 29 12 -4 32 -84 52 -52 13 -99 33 -142 61 -95 63 -321 132 -536 164 -71 11 -170 26 -220 35 -149 25 -683 28 -855 4z"/> <path d="M4108 9620 c-9 -6 -26 -25 -37 -44 -19 -31 -26 -34 -85 -40 -34 -4 -74 -13 -87 -20 -155 -82 -278 -151 -294 -166 -11 -10 -60 -43 -110 -74 -222 -139 -374 -265 -645 -536 -240 -240 -327 -344 -474 -565 -22 -33 -58 -82 -81 -110 -23 -27 -57 -79 -75 -115 -18 -36 -45 -83 -60 -105 -28 -41 -144 -277 -162 -330 -13 -37 -11 -563 3 -657 7 -57 81 -330 104 -390 11 -28 35 -21 49 15 8 17 19 91 25 162 6 75 23 182 41 254 17 68 37 169 45 223 8 55 25 118 36 140 12 23 38 94 59 159 132 405 344 782 638 1133 23 28 66 83 96 122 66 86 380 392 456 444 30 21 68 52 85 69 16 18 52 46 80 63 27 18 70 50 95 72 25 23 76 59 114 81 38 22 85 59 104 82 20 23 48 45 63 48 36 8 81 51 77 73 -4 20 -36 26 -60 12z"/> <path d="M12592 8815 c-55 -40 -55 -31 -48 -619 3 -298 6 -952 6 -1454 0 -913 0 -913 25 -937 24 -25 24 -25 329 -25 305 0 305 0 333 24 28 24 28 24 27 1485 -2 1595 2 1490 -56 1523 -38 22 -586 24 -616 3z"/> <path d="M23780 8819 c-37 -15 -68 -48 -80 -83 -13 -41 -20 -558 -9 -645 32 -243 32 -321 -2 -321 -6 0 -60 45 -119 99 -128 118 -159 139 -265 183 -80 33 -80 33 -315 33 -235 0 -235 0 -310 -37 -41 -20 -96 -45 -121 -56 -102 -43 -248 -199 -319 -342 -70 -140 -84 -196 -121 -480 -16 -122 -13 -468 5 -558 9 -42 20 -122 25 -177 30 -303 266 -609 507 -657 84 -17 601 -16 677 1 72 16 184 89 272 178 84 85 95 82 95 -31 0 -151 -12 -146 349 -146 303 0 352 7 367 53 13 40 7 2912 -6 2936 -28 53 -73 61 -350 60 -145 0 -266 -5 -280 -10z m-343 -1304 c61 -30 167 -140 194 -201 48 -107 84 -369 69 -506 -44 -423 -200 -584 -524 -538 -141 20 -257 111 -289 228 -79 287 -89 454 -38 657 52 209 92 274 223 359 65 42 279 42 365 1z"/> <path d="M5960 8789 c-175 -7 -175 -7 -360 -71 -368 -127 -520 -279 -597 -597 -31 -128 -28 -243 11 -442 29 -150 41 -180 93 -239 22 -25 53 -65 70 -90 56 -82 345 -226 506 -251 34 -6 122 -26 196 -44 73 -19 174 -40 225 -46 227 -27 372 -71 483 -148 98 -67 108 -90 108 -236 0 -174 -35 -224 -220 -312 -80 -38 -80 -38 -236 -41 -202 -5 -289 14 -394 86 -85 57 -124 108 -160 204 -70 186 -62 183 -443 182 -303 -1 -303 -1 -330 -28 -45 -45 -38 -148 20 -296 25 -63 52 -135 61 -160 47 -127 230 -309 414 -409 129 -71 146 -76 371 -112 282 -45 570 -48 772 -7 74 16 162 33 195 39 37 7 112 38 199 82 209 106 332 233 443 458 40 79 43 94 63 257 27 220 33 238 49 142 40 -247 152 -517 267 -645 161 -180 300 -259 555 -316 272 -61 487 -59 779 7 111 25 140 38 278 117 88 51 247 200 279 262 14 28 39 69 55 93 34 49 112 278 127 372 32 195 21 578 -19 682 -11 29 -29 89 -40 133 -24 95 -119 262 -195 344 -95 103 -302 240 -364 241 -7 0 -50 17 -95 37 -91 41 -189 52 -491 52 -228 1 -308 -10 -412 -57 -49 -22 -113 -47 -144 -56 -77 -22 -211 -120 -300 -218 -84 -93 -203 -314 -214 -396 -3 -26 -15 -90 -26 -142 -11 -52 -24 -140 -29 -195 -15 -159 -22 -215 -29 -214 -3 0 -30 50 -60 110 -45 92 -133 238 -194 324 -15 21 -203 127 -247 140 -14 4 -65 25 -114 47 -78 36 -102 42 -195 49 -58 4 -128 15 -155 23 -27 9 -90 21 -140 27 -390 46 -603 137 -644 275 -28 95 -3 244 50 302 109 116 459 148 643 57 115 -56 210 -170 250 -300 38 -127 89 -159 218 -137 34 6 90 14 125 17 34 3 84 12 110 20 26 8 74 17 107 20 168 17 210 78 142 207 -19 35 -40 81 -47 103 -52 160 -218 377 -345 450 -28 15 -86 52 -130 81 -63 42 -101 59 -176 78 -53 14 -118 34 -145 44 -102 40 -283 53 -574 41z m2839 -1250 c112 -24 223 -121 271 -235 49 -119 63 -225 57 -449 -8 -320 -73 -472 -238 -556 -137 -69 -397 -39 -497 59 -80 78 -99 121 -133 298 -40 207 -40 304 -4 489 31 163 52 208 134 291 95 98 252 137 410 103z"/> <path d="M13722 8749 c-65 -8 -97 -29 -110 -71 -7 -21 -13 -512 -17 -1368 -4 -734 -8 -1365 -9 -1401 -2 -125 16 -132 344 -130 276 2 311 8 336 59 8 16 12 317 13 1035 1 557 6 1030 11 1052 11 51 36 70 64 51 21 -13 31 -39 59 -151 8 -33 36 -132 62 -220 25 -88 57 -211 70 -274 14 -63 38 -144 55 -180 17 -35 42 -117 57 -180 14 -64 38 -149 54 -188 16 -40 44 -135 64 -212 19 -76 48 -176 65 -221 17 -45 43 -137 59 -203 43 -180 85 -287 127 -328 35 -34 35 -34 337 -37 398 -4 395 -5 435 154 11 45 32 105 47 134 16 31 34 96 45 155 10 56 32 137 49 180 18 43 43 124 56 179 13 56 35 133 49 171 34 98 102 336 120 421 8 39 25 93 39 120 13 27 30 79 36 117 10 60 48 188 128 442 51 163 80 207 98 153 5 -13 10 -502 12 -1087 3 -613 8 -1074 14 -1088 18 -47 56 -53 342 -53 287 0 319 5 342 50 15 28 4 528 -11 570 -13 34 -22 1389 -12 1806 12 488 12 490 -62 526 -48 24 -943 28 -988 4 -65 -34 -99 -96 -127 -234 -8 -40 -33 -126 -54 -190 -22 -64 -45 -144 -51 -177 -6 -33 -27 -107 -45 -165 -18 -58 -52 -175 -75 -260 -23 -85 -61 -220 -85 -300 -24 -80 -49 -178 -55 -219 -6 -42 -26 -109 -46 -154 -21 -48 -45 -130 -59 -204 -31 -151 -81 -312 -101 -320 -40 -15 -100 95 -120 220 -8 51 -29 130 -45 177 -17 47 -42 130 -55 185 -13 55 -51 188 -83 295 -33 107 -68 231 -79 275 -11 44 -33 118 -50 165 -17 47 -38 128 -46 180 -8 53 -29 129 -46 170 -17 41 -42 122 -56 180 -65 277 -99 347 -182 374 -50 17 -806 29 -920 15z"/> <path d="M3975 8241 c-77 -48 -261 -248 -350 -379 -129 -191 -254 -431 -294 -567 -18 -60 -51 -163 -73 -227 -50 -148 -57 -222 -58 -600 0 -303 9 -408 42 -498 27 -72 51 -146 83 -249 14 -47 50 -137 79 -200 57 -122 70 -168 56 -191 -12 -20 -62 4 -102 50 -55 62 -185 222 -221 270 -52 71 -97 66 -97 -10 0 -57 16 -99 124 -327 139 -293 254 -496 381 -670 33 -45 73 -101 88 -125 15 -24 55 -74 88 -113 33 -38 77 -92 98 -120 63 -82 356 -373 493 -489 168 -143 195 -186 107 -172 -42 7 -287 130 -361 182 -25 18 -66 43 -90 55 -23 12 -92 59 -153 104 -60 45 -128 92 -150 105 -22 13 -56 36 -76 52 -72 55 -123 53 -112 -4 6 -31 168 -252 258 -353 150 -169 390 -392 525 -490 30 -21 78 -59 105 -84 56 -50 369 -257 430 -285 22 -10 63 -32 90 -50 28 -17 102 -55 165 -83 63 -29 149 -67 191 -86 41 -19 101 -51 133 -71 32 -21 78 -45 103 -55 24 -9 44 -21 44 -27 -1 -16 -96 -16 -158 0 -32 8 -96 20 -143 26 -47 6 -126 24 -176 41 -51 16 -129 36 -175 44 -95 17 -288 90 -578 219 -208 92 -407 204 -641 358 -263 174 -739 607 -866 788 -21 30 -59 80 -85 110 -70 83 -259 357 -282 409 -10 25 -43 84 -73 131 -67 108 -225 450 -269 583 -18 56 -40 119 -49 139 -9 21 -25 77 -37 125 -11 49 -30 117 -43 153 -13 36 -42 173 -65 305 -40 234 -53 352 -70 603 -5 68 -13 128 -20 135 -13 13 -9 18 -57 -68 -95 -171 -99 -203 -99 -875 0 -587 1 -597 55 -785 16 -55 36 -140 45 -190 38 -212 120 -471 206 -652 21 -45 39 -85 39 -90 0 -4 37 -82 82 -173 127 -258 187 -357 408 -674 25 -35 77 -99 115 -141 39 -42 107 -117 152 -166 220 -241 601 -569 782 -674 31 -18 108 -64 171 -102 63 -38 139 -82 169 -97 29 -14 81 -42 115 -60 80 -45 357 -160 421 -175 28 -7 87 -30 132 -52 66 -32 102 -43 186 -54 61 -8 121 -22 145 -34 45 -23 224 -57 492 -93 244 -32 781 -32 955 0 61 11 146 24 190 27 133 10 257 33 329 60 37 14 115 32 174 40 89 13 121 23 192 59 47 24 119 51 160 60 41 9 111 34 155 56 44 22 121 57 172 79 160 69 574 320 682 415 20 17 54 45 76 61 210 153 589 537 768 777 238 319 467 728 572 1023 112 312 196 461 343 612 28 30 52 62 52 72 0 47 -63 54 -131 16 -24 -14 -64 -34 -89 -45 -67 -30 -99 -49 -160 -97 -30 -23 -80 -51 -110 -62 -30 -10 -86 -35 -125 -54 -76 -38 -149 -57 -223 -57 -89 0 -203 -37 -381 -123 -14 -7 -57 -49 -97 -94 -65 -75 -75 -93 -109 -190 -21 -60 -49 -133 -62 -163 -14 -30 -38 -92 -54 -138 -40 -118 -88 -191 -175 -267 -84 -73 -113 -91 -169 -100 -22 -4 -76 -13 -121 -22 -72 -13 -87 -13 -140 0 -103 27 -173 57 -201 89 -16 16 -51 47 -80 69 -40 30 -55 49 -67 87 -32 97 -81 104 -93 14 -9 -68 86 -249 170 -323 68 -61 235 -152 310 -169 94 -21 271 33 437 132 56 34 107 58 115 54 22 -8 19 -101 -4 -151 -50 -111 -241 -342 -316 -381 -27 -14 -84 -48 -125 -75 -180 -116 -512 -133 -741 -37 -187 77 -402 272 -489 442 -97 188 -102 218 -110 621 -8 382 -8 384 -72 508 -75 143 -285 295 -442 318 -34 5 -206 9 -382 9 -313 0 -325 1 -475 29 -158 30 -299 70 -404 114 -33 13 -74 28 -92 32 -17 3 -51 20 -73 36 -23 17 -62 39 -85 49 -99 42 -400 249 -453 311 -19 22 -60 59 -91 83 -68 53 -273 311 -320 404 -17 34 -47 82 -65 107 -19 24 -44 75 -56 112 -12 37 -36 99 -53 138 -127 294 -164 844 -82 1225 47 217 147 491 226 618 106 171 140 237 137 267 -4 37 -30 43 -73 16z"/> <path d="M18155 8080 c-33 -4 -89 -21 -125 -37 -36 -17 -95 -40 -133 -53 -37 -12 -93 -41 -125 -64 -31 -23 -77 -56 -101 -72 -123 -80 -262 -312 -327 -544 -41 -142 -46 -532 -10 -730 31 -171 102 -363 163 -439 140 -174 326 -319 448 -349 134 -33 749 -41 950 -12 121 17 249 89 370 207 116 113 164 188 230 359 60 153 63 208 15 255 -29 30 -29 30 -309 27 -325 -3 -313 0 -351 -114 -24 -70 -134 -205 -193 -236 -93 -47 -275 -49 -389 -3 -106 42 -181 151 -214 311 -23 109 -15 170 25 206 31 28 31 28 264 29 1113 4 1144 5 1171 22 63 42 63 46 37 337 -10 106 -75 315 -131 418 -90 166 -317 376 -428 397 -20 3 -71 22 -113 40 -54 25 -100 37 -165 45 -100 11 -467 11 -559 0z m423 -514 c79 -21 135 -59 190 -128 102 -130 116 -211 41 -237 -21 -7 -145 -11 -366 -11 -334 0 -334 0 -360 26 -42 42 -17 123 69 225 100 119 266 167 426 125z"/> <path d="M21090 8081 c-119 -7 -130 -9 -220 -50 -130 -60 -228 -136 -346 -273 -80 -93 -110 -57 -99 118 12 188 14 187 -346 187 -301 1 -322 -4 -345 -73 -18 -56 -16 -2128 2 -2157 32 -51 56 -55 343 -56 281 0 324 5 357 50 9 14 12 163 11 683 -1 757 -5 716 78 779 30 23 62 52 70 65 36 55 209 116 331 117 138 0 218 -50 265 -168 24 -58 24 -58 24 -759 0 -688 0 -702 20 -724 36 -40 59 -43 344 -41 289 2 328 8 350 49 14 27 -3 1685 -19 1762 -13 66 -86 217 -138 285 -48 64 -119 113 -240 166 -110 48 -180 55 -442 40z"/> <path d="M10107 8060 c-45 -8 -87 -37 -104 -71 -16 -30 -8 -1498 8 -1624 38 -295 140 -475 315 -557 66 -31 74 -32 269 -42 231 -11 494 8 557 40 58 30 162 121 230 201 130 154 138 152 138 -41 0 -195 -14 -188 353 -186 284 0 323 6 346 48 9 16 20 1806 13 2086 -3 135 -17 142 -329 148 -268 6 -325 0 -363 -37 -25 -25 -25 -25 -30 -723 -3 -383 -7 -698 -8 -699 -1 -1 -27 -32 -58 -70 -63 -78 -199 -174 -278 -198 -106 -32 -262 -14 -330 38 -47 36 -94 131 -106 213 -5 40 -10 344 -10 727 0 733 3 704 -67 734 -39 16 -469 26 -546 13z"/> </g></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M5 4h3l1.5 4-2 1.3a11 11 0 0 0 7.2 7.2l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 3 6.2 2 2 0 0 1 5 4z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></symbol>
+</svg>
+
+<header class="site-head" id="top">
+  <a class="brand" href="#top" aria-label="SoulMend home"><svg viewBox="0 0 2278.818690 837.271891" aria-hidden="true"><use href="#logo"/></svg></a>
+  <nav class="nav" aria-label="Main">
+    <a href="#treatments">Treatments</a>
+    <a href="#first-visit">First visit</a>
+  </nav>
+</header>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-label="Welcome">
+    <div class="stage" aria-hidden="true">
+      <figure class="ph ph-tl"><img src="assets/img/towel-800.webp" srcset="assets/img/towel-800.webp 800w, assets/img/towel-1600.webp 1600w, assets/img/towel-2400.webp 2400w" sizes="(max-width: 760px) 30vw, 16vw" alt="" width="800" height="971"></figure>
+      <figure class="ph ph-tr"><img src="assets/img/cupping-800.webp" srcset="assets/img/cupping-800.webp 800w, assets/img/cupping-1600.webp 1600w, assets/img/cupping-2400.webp 2400w" sizes="(max-width: 760px) 30vw, 16vw" alt="" width="790" height="800"></figure>
+      <figure class="ph ph-br"><img src="assets/img/neck-800.webp" srcset="assets/img/neck-800.webp 800w, assets/img/neck-1600.webp 1600w, assets/img/neck-2400.webp 2400w" sizes="(max-width: 760px) 30vw, 16vw" alt="" width="800" height="846"></figure>
+      <div class="ph ph-main">
+        <div class="frame">
+          <img src="assets/img/back-800.webp" srcset="assets/img/back-800.webp 800w, assets/img/back-1600.webp 1600w, assets/img/back-2400.webp 2400w"
+               sizes="(max-width: 760px) 55vw, 32vw" alt="" width="800" height="1309" fetchpriority="high">
+        </div>
+        <!-- Two arcs echoing the swoosh in the SoulMend mark -->
+        <svg class="swoosh" viewBox="0 0 100 140">
+          <path d="M-7.1 60.1 A58 58 0 0 1 69.8 -4.5" stroke-width=".42"/>
+          <path d="M-13.8 32.9 A66 66 0 0 1 32.9 -13.8" stroke-width=".26"/>
+        </svg>
+      </div>
+    </div>
+
+    <h1 class="hero-title">
+      <span class="line"><span>Let go of</span></span>
+      <span class="line"><span>what weighs</span></span>
+      <span class="line"><span>you down.</span></span>
+    </h1>
+
+    <div class="hero-side">
+      <p>Hands-on massage therapy for tight shoulders, tired backs and busy minds. Come in tense, leave lighter.</p>
+      <div class="actions">
+        <a class="btn btn-cream" href="#treatments">See treatments</a>
+        <a class="btn btn-line" href="tel:+995598300198"><svg aria-hidden="true"><use href="#i-phone"/></svg>598 300 198</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TREATMENTS (stacking cards) ============ -->
+  <!-- TODO(client): confirm treatments, durations and prices. All values below are placeholders. -->
+  <section class="sec treatments" id="treatments">
+    <div class="sec-head">
+      <h2>Treatments</h2>
+      <p>Every session starts with a short talk about where it hurts and how much pressure you like. Prices are per session.</p>
+    </div>
+
+    <div class="stack">
+      <article class="card" data-tone="cream" style="--i:0">
+        <div class="card-media"><img src="assets/img/back-800.webp" srcset="assets/img/back-800.webp 800w, assets/img/back-1600.webp 1600w, assets/img/back-2400.webp 2400w" sizes="(max-width: 760px) 92vw, 45vw" alt="Therapist working on a client's shoulder" loading="lazy" width="800" height="1309" style="object-position:60% 62%"></div>
+        <div class="card-body">
+          <h3>Deep tissue</h3>
+          <p class="lede">Slow, firm pressure for knots in the neck, shoulders and back.</p>
+          <ul class="benefits">
+            <li>Works into stubborn knots and stiffness</li>
+            <li>Good after training or long days at a desk</li>
+            <li>Pressure agreed with you before and during</li>
+            <li>Can be combined with cupping</li>
+          </ul>
+          <dl class="prices">
+            <div class="row"><dt>60 minutes</dt><dd>₾90</dd></div>
+            <div class="row"><dt>90 minutes</dt><dd>₾130</dd></div>
+          </dl>
+          <a class="btn btn-pine" href="tel:+995598300198">Book deep tissue</a>
+        </div>
+      </article>
+
+      <article class="card" data-tone="sage" style="--i:1">
+        <div class="card-media"><img src="assets/img/neck-800.webp" srcset="assets/img/neck-800.webp 800w, assets/img/neck-1600.webp 1600w, assets/img/neck-2400.webp 2400w" sizes="(max-width: 760px) 92vw, 45vw" alt="Relaxed shoulders and collarbone in soft light" loading="lazy" width="800" height="846"></div>
+        <div class="card-body">
+          <h3>Relaxation massage</h3>
+          <p class="lede">Long, flowing strokes with warm oil to slow everything down.</p>
+          <ul class="benefits">
+            <li>Gentle to medium pressure</li>
+            <li>Warm oil, dim light, no rush</li>
+            <li>A good first massage if you're new to it</li>
+            <li>Pairs well with aromatherapy oils</li>
+          </ul>
+          <dl class="prices">
+            <div class="row"><dt>60 minutes</dt><dd>₾80</dd></div>
+            <div class="row"><dt>90 minutes</dt><dd>₾115</dd></div>
+          </dl>
+          <a class="btn btn-pine" href="tel:+995598300198">Book relaxation</a>
+        </div>
+      </article>
+
+      <article class="card" data-tone="pine" style="--i:2">
+        <div class="card-media"><img src="assets/img/cupping-800.webp" srcset="assets/img/cupping-800.webp 800w, assets/img/cupping-1600.webp 1600w, assets/img/cupping-2400.webp 2400w" sizes="(max-width: 760px) 92vw, 45vw" alt="Three glass cups on a client's back" loading="lazy" width="790" height="800"></div>
+        <div class="card-body">
+          <h3>Cupping therapy</h3>
+          <p class="lede">Glass cups create gentle suction to lift and loosen tight tissue.</p>
+          <ul class="benefits">
+            <li>Used on the back and shoulders</li>
+            <li>Available on its own or added to any massage</li>
+            <li>Round marks can stay for a few days</li>
+            <li>Tell us about skin conditions when booking</li>
+          </ul>
+          <dl class="prices">
+            <div class="row"><dt>30 minutes</dt><dd>₾60</dd></div>
+            <div class="row"><dt>60 minutes, with massage</dt><dd>₾110</dd></div>
+          </dl>
+          <a class="btn btn-pine" href="tel:+995598300198">Book cupping</a>
+        </div>
+      </article>
+
+      <article class="card" data-tone="paper" style="--i:3">
+        <div class="card-media"><img src="assets/img/towel-800.webp" srcset="assets/img/towel-800.webp 800w, assets/img/towel-1600.webp 1600w, assets/img/towel-2400.webp 2400w" sizes="(max-width: 760px) 92vw, 45vw" alt="Rolled green towel with a bottle of essential oil" loading="lazy" width="800" height="971"></div>
+        <div class="card-body">
+          <h3>Aromatherapy massage</h3>
+          <p class="lede">A relaxation massage with essential oils chosen for how you want to feel.</p>
+          <ul class="benefits">
+            <li>Calming or uplifting blends</li>
+            <li>Gentle pressure throughout</li>
+            <li>Mention any allergies when you book</li>
+            <li>Finished with a warm towel</li>
+          </ul>
+          <dl class="prices">
+            <div class="row"><dt>60 minutes</dt><dd>₾95</dd></div>
+            <div class="row"><dt>90 minutes</dt><dd>₾135</dd></div>
+          </dl>
+          <a class="btn btn-pine" href="tel:+995598300198">Book aromatherapy</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ FIRST VISIT ============ -->
+  <section class="sec visit" id="first-visit">
+    <div class="sec-head">
+      <h2>Your first visit</h2>
+      <p>No need to know which massage you want. We'll work it out together.</p>
+    </div>
+    <ol class="steps">
+      <li><h3>Book</h3><p>Call or message 598 300 198 with a day and time that suits you.</p></li>
+      <li><h3>Arrive</h3><p>Come 10 minutes early to settle in. Wear whatever is comfortable.</p></li>
+      <li><h3>Talk</h3><p>Tell us where it hurts, any injuries, and how firm you like the pressure.</p></li>
+      <li><h3>Unwind</h3><p>Enjoy the session, then leave with a few simple stretches for home.</p></li>
+    </ol>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="foot-inner">
+    <div class="lockup"><svg viewBox="0 0 2278.818690 837.271891" aria-label="SoulMend" role="img"><use href="#logo"/></svg><span>Renewal massage therapy</span></div>
+    <small>© <span id="yr">2026</span> SoulMend</small>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Header background after leaving the hero ---------- */
+  const head = document.querySelector('.site-head');
+  const onScrollHead = () => head.classList.toggle('is-solid', scrollY > 40);
+  addEventListener('scroll', onScrollHead, {passive:true}); onScrollHead();
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* ---------- Swoosh stroke lengths (for the draw-on) ---------- */
+  document.querySelectorAll('.swoosh path').forEach(p => p.style.setProperty('--len', Math.ceil(p.getTotalLength()) + 1));
+
+  /* ---------- Hero intro: photos gather in a deck, then fly out; the main one comes forward ----------
+     FLIP: each photo is already in its final CSS position. We compute the transform that puts it
+     in the centre deck, then animate from there back to its resting transform. */
+  function runIntro(){
+    const stage = document.querySelector('.stage');
+    const s = stage.getBoundingClientRect();
+    const cx = s.left + s.width/2, cy = s.top + Math.min(s.height, innerHeight)/2;
+    const deckW = Math.min(230, s.width * 0.34);
+    const order = ['.ph-tl', '.ph-br', '.ph-tr', '.ph-main'];      // last = top of deck = the one that comes forward
+    const fan   = [-12, 9, -5, 0];
+    const nudge = [[-46, 10], [44, 18], [20, -16], [0, 0]];   // fan the deck so every card peeks out
+    const outDelay = 1350;   // deck is complete at ~1.2s; then the photos fly out
+
+    order.forEach((sel, i) => {
+      const el = document.querySelector(sel);
+      const r = el.getBoundingClientRect();
+      const rest = getComputedStyle(el).getPropertyValue('--r').trim() || '0deg';
+      // getBoundingClientRect includes the rest rotation; for small angles this is close enough
+      const k = deckW / r.width;
+      const dx = cx + nudge[i][0] - (r.left + r.width/2), dy = cy + nudge[i][1] - (r.top + r.height/2);
+      const deck   = `translate(${dx}px, ${dy}px) scale(${k}) rotate(${fan[i]}deg)`;
+      const before = `translate(${dx}px, ${dy + 60}px) scale(${k * .92}) rotate(${fan[i]}deg)`;
+      const final  = `rotate(${rest})`;
+      const isMain = sel === '.ph-main';
+
+      el.style.opacity = 1;
+      el.animate([
+        {transform: before, opacity: 0},
+        {transform: deck, opacity: 1}
+      ], {duration: 650, delay: 120 + i * 140, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards'});
+
+      el.animate([
+        {transform: deck},
+        {transform: final}
+      ], {duration: isMain ? 1300 : 1150, delay: outDelay + (isMain ? 120 : i * 70),
+          easing: 'cubic-bezier(.75,0,.2,1)', fill: 'backwards'});
+    });
+
+    setTimeout(() => root.classList.add('intro-text'), outDelay + 750);
+    setTimeout(() => root.classList.remove('is-intro'), outDelay + 2600);
+  }
+
+  if (root.classList.contains('is-intro')) {
+    const imgs = [...document.querySelectorAll('.stage img')];
+    const ready = Promise.all(imgs.map(img => img.decode ? img.decode().catch(() => {}) : Promise.resolve()));
+    let started = false;
+    const go = () => { if (!started) { started = true; runIntro(); } };
+    ready.then(go);
+    setTimeout(go, 1800);   // don't hold the page hostage on a slow connection
+  }
+
+  /* ---------- Hero: corner photos drift out to their corners and fade as the hero scrolls away ---------- */
+  const hero = document.querySelector('.hero');
+  const drift = [
+    ['.ph-tl img', -1, -1],   // up-left
+    ['.ph-tr img',  1, -1],   // up-right
+    ['.ph-br img',  1,  1],   // down-right
+  ].map(([sel, x, y]) => [document.querySelector(sel), x, y]);
+  const mainImg = document.querySelector('.ph-main .frame img');
+  let heroTick = false;
+  function updateHero(){
+    heroTick = false;
+    const r = hero.getBoundingClientRect();
+    // 0 at the top of the page, 1 once ~45% of the hero has scrolled past
+    const p = Math.min(1, Math.max(0, -r.top / (r.height * 0.45)));
+    const e = p * p * (3 - 2 * p);                     // smoothstep
+    const dist = Math.min(innerWidth, 900) * 0.22;
+    drift.forEach(([img, x, y]) => {
+      img.style.transform = `translate(${x * dist * e}px, ${y * dist * e}px) scale(${1 - e * 0.25})`;
+      img.style.opacity = String(1 - Math.min(1, e * 1.25));
+    });
+    mainImg.style.transform = `scale(${1 + e * 0.06})`;  // main photo leans in slightly as the others leave
+  }
+  if (!reduce) {
+    addEventListener('scroll', () => { if (!heroTick) { heroTick = true; requestAnimationFrame(updateHero); } }, {passive:true});
+    addEventListener('resize', updateHero);
+    updateHero();
+  } else {
+    // No movement, but still clear the corner photos once the hero is out of the way
+    const io = new IntersectionObserver(([en]) => drift.forEach(([img]) => img.style.opacity = en.intersectionRatio > .55 ? 1 : 0),
+      {threshold: [0, .55, 1]});
+    io.observe(hero);
+  }
+
+  /* ---------- Stacking cards: earlier cards shrink and dim as the next one covers them ---------- */
+  const cards = [...document.querySelectorAll('.card')];
+  let ticking = false;
+  function updateStack(){
+    ticking = false;
+    for (let i = 0; i < cards.length - 1; i++) {
+      const a = cards[i].getBoundingClientRect();
+      const b = cards[i+1].getBoundingClientRect();
+      const p = Math.min(1, Math.max(0, 1 - (b.top - a.top) / a.height));   // 0 = next card far, 1 = fully covering
+      const depth = cards.length - 1 - i;
+      cards[i].style.transform = `scale(${1 - p * 0.035 * depth})`;
+      cards[i].style.filter = `brightness(${1 - p * 0.28})`;
+    }
+  }
+  if (!reduce) {
+    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(updateStack); } }, {passive:true});
+    addEventListener('resize', updateStack);
+    updateStack();
+  }
+
+})();
+</script>
+</body>
+</html>
