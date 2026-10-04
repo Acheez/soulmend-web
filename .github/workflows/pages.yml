@@ -1,0 +1,59 @@
+# Publishes the site to GitHub Pages on every push to main (or by hand: Actions → Deploy site → Run workflow).
+# The booking link is NOT in the repository. Set it under
+#   Settings → Secrets and variables → Actions → Variables → New repository variable: BOOKING_URL
+# (a Secret named BOOKING_URL works too). After changing it, re-run this workflow.
+# Optional, paid Google plans only (one booking page per card, so Google records which massage it is):
+#   BOOKING_URL_RELAX, BOOKING_URL_THERAPEUTIC, BOOKING_URL_SPORTS, BOOKING_URL_BODY, BOOKING_URL_FACIAL
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Write assets/js/config.js from repository settings
+        env:
+          BOOKING_URL: ${{ secrets.BOOKING_URL || vars.BOOKING_URL }}
+          BOOKING_URL_RELAX: ${{ vars.BOOKING_URL_RELAX }}
+          BOOKING_URL_THERAPEUTIC: ${{ vars.BOOKING_URL_THERAPEUTIC }}
+          BOOKING_URL_SPORTS: ${{ vars.BOOKING_URL_SPORTS }}
+          BOOKING_URL_BODY: ${{ vars.BOOKING_URL_BODY }}
+          BOOKING_URL_FACIAL: ${{ vars.BOOKING_URL_FACIAL }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          env = lambda k: os.environ.get(k, "").strip()
+          cats = ["relax", "therapeutic", "sports", "body", "facial"]
+          cfg = {"bookingUrl": env("BOOKING_URL"),
+                 "bookingUrls": {c: env("BOOKING_URL_" + c.upper()) for c in cats if env("BOOKING_URL_" + c.upper())}}
+          with open("assets/js/config.js", "w") as f:
+              f.write("window.SOULMEND_CONFIG = " + json.dumps(cfg) + ";\n")
+          print("Booking link set:", bool(cfg["bookingUrl"]))
+          PY
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
