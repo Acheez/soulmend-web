@@ -104,6 +104,10 @@
             <div class="svc-tabs" role="radiogroup" aria-labelledby="svc-pick">
               ${group.map(g => `<label class="chip"><input type="radio" name="svc" value="${g.id}"><span>${esc(tr(g.name))}</span></label>`).join('')}
             </div>
+            <div class="svc-select">
+              <select name="svc" aria-labelledby="svc-pick">${group.map(g => `<option value="${g.id}">${esc(tr(g.name))}</option>`).join('')}</select>
+              ${icon('i-chevron')}
+            </div>
           </section>` : ''}
           <div class="svc-detail"></div>
         </div>
@@ -111,6 +115,8 @@
     }
     const radio = sheet.querySelector(`input[name="svc"][value="${s.id}"]`);
     if (radio) radio.checked = true;
+    const select = sheet.querySelector('select[name="svc"]');
+    if (select) select.value = s.id;
     renderBody(); renderFoot();
     if (!sameGroup) sheet.querySelector('.sheet-body').scrollTop = 0;
     show(sheet);
@@ -152,7 +158,8 @@
         <h3>${UI.notFor}</h3>
         <ul class="svc-list">${s.cautions.map(c => `<li>${esc(tr(DATA.CAUTIONS[c]))}</li>`).join('')}</ul>
         <p class="svc-small">${UI.doctor}</p>
-      </section>`;
+      </section>
+      ${bookingUrl(s.category) && !ownUrl(s.category) ? `<p class="svc-small note-body">${UI.genericNote}</p>` : ''}`;
   }
 
   function renderFoot(){
@@ -164,7 +171,7 @@
            <a class="btn btn-pine" href="${esc(online)}" target="_blank" rel="noopener">${UI.book}${icon('i-ext')}</a>
            <a class="btn btn-line btn-icon-sm" href="${wa}" target="_blank" rel="noopener">${icon('i-whatsapp')}<span class="lbl">WhatsApp</span></a>
          </div>
-         ${ownUrl(s.category) ? '' : `<p class="svc-small">${UI.genericNote}</p>`}`
+         ${ownUrl(s.category) ? '' : `<p class="svc-small note-foot">${UI.genericNote}</p>`}`
       : `<div class="foot-btns">
            <a class="btn btn-pine" href="${wa}" target="_blank" rel="noopener">${icon('i-whatsapp')}${UI.bookWa}</a>
            <a class="btn btn-line btn-icon-sm" href="tel:+${PHONE}">${icon('i-phone')}<span class="lbl">598 300 198</span></a>

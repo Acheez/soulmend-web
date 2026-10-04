@@ -274,7 +274,7 @@ html.has-dialog{overflow:hidden}
   background:transparent;color:var(--ink);cursor:pointer}
 .sheet-close:hover{background:color-mix(in srgb,var(--ink) 8%,transparent)}
 .sheet-close svg{width:20px;height:20px}
-.sheet-body{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:1.4rem 1.5rem 1.6rem}
+.sheet-body{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:1.4rem 1.5rem 1.6rem}
 .sheet-foot{padding:1rem 1.5rem calc(1rem + env(safe-area-inset-bottom,0px));border-top:1px solid color-mix(in srgb,var(--ink) 12%,transparent)}
 .sheet-foot:empty{display:none}
 .foot-btns{display:flex;flex-wrap:wrap;gap:.6rem}
@@ -293,6 +293,14 @@ html.has-dialog{overflow:hidden}
 .svc-picker{margin-bottom:1.5rem;padding-bottom:1.4rem;border-bottom:1px solid color-mix(in srgb,var(--ink) 12%,transparent)}
 .svc-picker h3{margin:0 0 .7rem;font:600 .85rem/1.3 var(--sans);color:color-mix(in srgb,var(--ink) 65%,transparent)}
 .svc-tabs{display:flex;flex-wrap:wrap;gap:.45rem}
+/* Phones: one native dropdown instead of the chips. 16px text so iOS doesn't zoom in on focus. */
+.svc-select{display:none;position:relative}
+.svc-select select{-webkit-appearance:none;appearance:none;width:100%;min-height:50px;padding:.7rem 2.8rem .7rem 1rem;border-radius:14px;
+  border:1px solid color-mix(in srgb,var(--ink) 25%,transparent);background:color-mix(in srgb,#fff 45%,var(--cream));
+  color:var(--ink);font:500 1rem/1.3 var(--sans)}
+.svc-select select:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+.svc-select svg{position:absolute;right:1rem;top:50%;width:18px;height:18px;transform:translateY(-50%) rotate(90deg);pointer-events:none}
+.note-body{display:none}
 .sheet h2:focus{outline:none}
 .chip{position:relative;flex:none}
 .chip input,.dur-opt input{position:absolute;opacity:0;pointer-events:none}
@@ -342,7 +350,9 @@ html.has-dialog{overflow:hidden}
 .quiz-alts .link-btn{min-height:36px;text-align:left}
 
 @media (max-width:600px){
-  .sheet{width:100%;max-height:92svh;margin:auto 0 0;border-radius:24px 24px 0 0}
+  .sheet{width:100%;max-height:92vh;max-height:92svh;margin:auto 0 0;border-radius:24px 24px 0 0}
+  /* Treatment details always open tall on phones, so the details get the room (not just a line or two) */
+  .svc-sheet{height:88vh;height:88svh}
   .sheet[open]{animation-name:sheet-up}
   .sheet-head,.sheet-body,.sheet-foot{padding-left:1.15rem;padding-right:1.15rem}
   .quiz-progress{margin-inline:-1.15rem}
@@ -351,6 +361,13 @@ html.has-dialog{overflow:hidden}
   .foot-btns .btn-icon-sm{flex:none;width:48px;padding:0}
   .btn-icon-sm .lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   .sheet-foot .svc-small{font-size:.8rem}
+}
+@media (max-width:600px){
+  .svc-tabs{display:none}
+  .svc-select{display:block}
+  .svc-picker{margin-bottom:1.2rem;padding-bottom:1.2rem}
+  .note-foot{display:none}
+  .note-body{display:block;margin-top:1.4rem}
 }
 @keyframes sheet-up{from{transform:translateY(40px);opacity:.6}}
 
